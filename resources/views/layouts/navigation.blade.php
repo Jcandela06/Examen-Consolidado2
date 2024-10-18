@@ -22,6 +22,12 @@
                         {{ __('Artistas') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('obras_de_arte.index')" :active="request()->routeIs('obras_de_arte.index')">
+                        {{ __('Obras de Arte') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

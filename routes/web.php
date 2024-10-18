@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistaController;
+use App\Http\Controllers\Obra_de_arteController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,11 +23,17 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
 
+//RUTAS ARTISTAS
+
 Route::get('/artistas', [ArtistaController::class, 'index'])->name('artistas.index');
 Route::post('/artistas', [ArtistaController::class, 'store'])->name('artistas.store');
 Route::get('/artistas/create', [ArtistaController::class, 'create'])->name('artistas.create');
 Route::delete('/artistas/{artista}', [ArtistaController::class, 'destroy'])->name('artistas.destroy');
 Route::put('/artistas/{artista}', [ArtistaController::class, 'update'])->name('artistas.update');
 Route::get('/artistas/{artista}/edit', [ArtistaController::class, 'edit'])->name('artistas.edit');
+
+//RUTAS OBRAS DE ARTE
+
+Route::get('/obras_de_arte', [Obra_de_arteController::class, 'index'])->name('obras_de_arte.index');
 
 });
