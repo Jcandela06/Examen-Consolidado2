@@ -35,5 +35,7 @@ Route::get('/artistas/{artista}/edit', [ArtistaController::class, 'edit'])->name
 //RUTAS OBRAS DE ARTE
 
 Route::get('/obras_de_arte', [Obra_de_arteController::class, 'index'])->name('obras_de_arte.index');
+Route::post('/obras_de_arte', [Obra_de_arteController::class, 'store'])->name('obras_de_arte.store');
+Route::get('/obras_de_arte/create', [Obra_de_arteController::class, 'create'])->name('obras_de_arte.create');
 
 });

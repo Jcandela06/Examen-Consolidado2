@@ -22,7 +22,8 @@ class Obra_de_arteController extends Controller
      */
     public function create()
     {
-        //
+        $obras_de_arte = DB::table('obras_de_arte');
+        return view('obra_de_arte.new', ['obras_de_arte' => $obras_de_arte]); 
     }
 
     /**
@@ -30,7 +31,18 @@ class Obra_de_arteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $obra_de_arte = new Obra_de_Arte();
+        $obra_de_arte->artista_id = $request->artista_id;
+        $obra_de_arte->título = $request->título;
+        $obra_de_arte->año = $request->año;
+        $obra_de_arte->técnica = $request->técnica;
+        $obra_de_arte->dimensiones = $request->dimensiones;
+        $obra_de_arte->descripción = $request->descripción;
+        $obra_de_arte->save();
+
+        $obras_de_arte = DB::table('obras_de_arte')->get();
+
+        return redirect()->route('obras_de_arte.index')->with('success', 'Artista creado exitosamente.');
     }
 
     /**
