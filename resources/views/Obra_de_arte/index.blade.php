@@ -29,6 +29,12 @@
                                     <td>{{ $obra_de_arte->artista_id }}</td> <!-- Mostrar el nombre del artista -->
                                     <td>{{ $obra_de_arte->año }}</td>
                                     <td>
+                                    <form action="{{ route('obras_de_arte.destroy', $obra_de_arte->id) }}" method="POST" style="display: inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">
+                                            Delete
+                                        </button>
                                     </form>
 
                                     </td>

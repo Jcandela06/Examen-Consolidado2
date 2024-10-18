@@ -74,6 +74,8 @@ class Obra_de_arteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $obra_de_arte = Obra_de_Arte::find($id);
+        $obra_de_arte->delete();
+        return redirect()->route('obras_de_arte.index')->with('success', 'Artista eliminado exitosamente.');
     }
 }
