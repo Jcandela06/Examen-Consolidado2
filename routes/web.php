@@ -38,5 +38,8 @@ Route::get('/obras_de_arte', [Obra_de_arteController::class, 'index'])->name('ob
 Route::post('/obras_de_arte', [Obra_de_arteController::class, 'store'])->name('obras_de_arte.store');
 Route::get('/obras_de_arte/create', [Obra_de_arteController::class, 'create'])->name('obras_de_arte.create');
 Route::delete('/obras_de_arte/{obra_de_arte}', [Obra_de_arteController::class, 'destroy'])->name('obras_de_arte.destroy');
+Route::put('/obras_de_arte/{obra_de_arte}', [Obra_de_arteController::class, 'update'])->name('obras_de_arte.update');
+Route::get('/obras_de_arte/{obra_de_arte}/edit', [Obra_de_arteController::class, 'edit'])->name('obras_de_arte.edit');
+
 
 });

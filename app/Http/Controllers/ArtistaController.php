@@ -31,7 +31,7 @@ class ArtistaController extends Controller
      */
     public function store(Request $request)
     {
-        $artista = new Artista();
+        $artista = new Artista();   
         $artista->nombre = $request->nombre;
         $artista->apellido = $request->apellido;
         $artista->nacionalidad = $request->nacionalidad;

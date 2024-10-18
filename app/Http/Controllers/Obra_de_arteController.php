@@ -42,7 +42,7 @@ class Obra_de_arteController extends Controller
 
         $obras_de_arte = DB::table('obras_de_arte')->get();
 
-        return redirect()->route('obras_de_arte.index')->with('success', 'Artista creado exitosamente.');
+        return redirect()->route('obras_de_arte.index')->with('success', 'Obra de Arte creado exitosamente.');
     }
 
     /**
@@ -58,7 +58,9 @@ class Obra_de_arteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $obra_de_arte = Obra_de_Arte::find($id);
+        $obras_de_arte = DB::table('obras_de_arte')->get();
+        return view('obra_de_arte.edit', compact('obra_de_arte'));
     }
 
     /**
@@ -66,7 +68,18 @@ class Obra_de_arteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $obra_de_arte = Obra_de_Arte::find($id);
+        $obra_de_arte->artista_id = $request->artista_id;
+        $obra_de_arte->título = $request->título;
+        $obra_de_arte->año = $request->año;
+        $obra_de_arte->técnica = $request->técnica;
+        $obra_de_arte->dimensiones = $request->dimensiones;
+        $obra_de_arte->descripción = $request->descripción;
+        $obra_de_arte->save();
+
+        $obras_de_arte = DB::table('obras_de_arte')->get();
+
+        return redirect()->route('obras_de_arte.index')->with('success', 'Obra de Arte Actuallizado exitosamente.');
     }
 
     /**
