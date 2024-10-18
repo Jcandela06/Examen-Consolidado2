@@ -23,5 +23,7 @@ require __DIR__.'/auth.php';
 Route::middleware('auth')->group(function () {
 
 Route::get('/artistas', [ArtistaController::class, 'index'])->name('artistas.index');
+Route::post('/artistas', [ArtistaController::class, 'store'])->name('artistas.store');
+Route::get('/artistas/create', [ArtistaController::class, 'create'])->name('artistas.create');
 
 });

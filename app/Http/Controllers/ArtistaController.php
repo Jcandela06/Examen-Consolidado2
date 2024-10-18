@@ -22,7 +22,8 @@ class ArtistaController extends Controller
      */
     public function create()
     {
-        //
+        $artistas = DB::table('artistas');
+        return view('artista.new', ['artistas' => $artistas]);
     }
 
     /**
@@ -30,7 +31,16 @@ class ArtistaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $artista = new Artista();
+        $artista->nombre = $request->nombre;
+        $artista->apellido = $request->apellido;
+        $artista->nacionalidad = $request->nacionalidad;
+        $artista->biografía = $request->biografia; // Si es NULL, se permite
+        $artista->save();
+
+        $artistas = DB::table('artistas')->get();
+
+        return redirect()->route('artistas.index')->with('success', 'Artista creado exitosamente.');
     }
 
     /**
