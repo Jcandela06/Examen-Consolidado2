@@ -56,7 +56,9 @@ class ArtistaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $artista = Artista::find($id);
+        $artistas = DB::table('artistas')->get();
+        return view('artista.edit', compact('artista'));
     }
 
     /**
@@ -64,7 +66,17 @@ class ArtistaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $artista = Artista::find($id);
+
+        $artista->nombre = $request->nombre;
+        $artista->apellido = $request->apellido;
+        $artista->nacionalidad = $request->nacionalidad;
+        $artista->biografía = $request->biografia; // Si es NULL, se permite
+        $artista->save();
+
+        $artistas = DB::table('artistas')->get();
+
+        return redirect()->route('artistas.index')->with('success', 'Artista actualizado exitosamente.');
     }
 
     /**

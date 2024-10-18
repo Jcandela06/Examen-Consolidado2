@@ -27,6 +27,11 @@
                                     <td>{{ $artista->nombre }}</td>
                                     <td>{{ $artista->nacionalidad }}</td>
                                     <td>
+
+                                    <a href="{{ route('artistas.edit', $artista->id) }}"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            Edit </a></li>
+
                                     <form action="{{ route('artistas.destroy', $artista->id) }}" method="POST" style="display: inline-block">
                                         @csrf
                                         @method('DELETE')

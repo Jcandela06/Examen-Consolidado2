@@ -26,5 +26,7 @@ Route::get('/artistas', [ArtistaController::class, 'index'])->name('artistas.ind
 Route::post('/artistas', [ArtistaController::class, 'store'])->name('artistas.store');
 Route::get('/artistas/create', [ArtistaController::class, 'create'])->name('artistas.create');
 Route::delete('/artistas/{artista}', [ArtistaController::class, 'destroy'])->name('artistas.destroy');
+Route::put('/artistas/{artista}', [ArtistaController::class, 'update'])->name('artistas.update');
+Route::get('/artistas/{artista}/edit', [ArtistaController::class, 'edit'])->name('artistas.edit');
 
 });
