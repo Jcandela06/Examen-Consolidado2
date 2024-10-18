@@ -72,6 +72,8 @@ class ArtistaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $artista = Artista::find($id);
+        $artista->delete();
+        return redirect()->route('artistas.index')->with('success', 'Artista eliminado exitosamente.');
     }
 }
