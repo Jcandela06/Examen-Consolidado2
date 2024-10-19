@@ -22,7 +22,9 @@ class ExposicionController extends Controller
      */
     public function create()
     {
-        //
+        $exposiciones = DB::table('exposiciones');
+        return view('exposicion.new', ['exposiciones' => $exposiciones]);
+        
     }
 
     /**
@@ -30,7 +32,17 @@ class ExposicionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $exposicion = new Exposicion();   
+        $exposicion->obra_id = $request->obra_id;
+        $exposicion->fecha_inicio = $request->fecha_inicio;
+        $exposicion->fecha_fin = $request->fecha_fin;
+        $exposicion->ubicación = $request->ubicación; 
+        $exposicion->nombre_evento = $request->nombre_evento; 
+        $exposicion->save();
+
+        $exposiciones = DB::table('exposiciones')->get();
+
+        return redirect()->route('exposiciones.index')->with('success', 'exposicion creado exitosamente.');
     }
 
     /**

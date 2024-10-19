@@ -6,6 +6,7 @@ use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\Obra_de_arteController;
 use App\Http\Controllers\ExposicionController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -45,5 +46,8 @@ Route::get('/obras_de_arte/{obra_de_arte}/edit', [Obra_de_arteController::class,
 //RUTAS EXPOSICIONES
 
 Route::get('/exposiciones', [ExposicionController::class, 'index'])->name('exposiciones.index');
+Route::post('/exposiciones', [ExposicionController::class, 'store'])->name('exposiciones.store');
+Route::get('/exposiciones/create', [ExposicionController::class, 'create'])->name('exposiciones.create');
+
 
 });
