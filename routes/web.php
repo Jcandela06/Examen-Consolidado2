@@ -48,6 +48,6 @@ Route::get('/obras_de_arte/{obra_de_arte}/edit', [Obra_de_arteController::class,
 Route::get('/exposiciones', [ExposicionController::class, 'index'])->name('exposiciones.index');
 Route::post('/exposiciones', [ExposicionController::class, 'store'])->name('exposiciones.store');
 Route::get('/exposiciones/create', [ExposicionController::class, 'create'])->name('exposiciones.create');
-
+Route::delete('/exposiciones/{exposicion}', [ExposicionController::class, 'destroy'])->name('exposiciones.destroy');
 
 });

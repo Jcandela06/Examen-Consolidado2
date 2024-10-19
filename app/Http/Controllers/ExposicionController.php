@@ -74,6 +74,9 @@ class ExposicionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $exposicion = Exposicion::find($id);
+        $exposicion->delete();
+        return redirect()->route('exposiciones.index')->with('success', 'exposicion eliminado exitosamente.');
+    
     }
 }
