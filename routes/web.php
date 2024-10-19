@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\Obra_de_arteController;
+use App\Http\Controllers\ExposicionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,5 +42,8 @@ Route::delete('/obras_de_arte/{obra_de_arte}', [Obra_de_arteController::class, '
 Route::put('/obras_de_arte/{obra_de_arte}', [Obra_de_arteController::class, 'update'])->name('obras_de_arte.update');
 Route::get('/obras_de_arte/{obra_de_arte}/edit', [Obra_de_arteController::class, 'edit'])->name('obras_de_arte.edit');
 
+//RUTAS EXPOSICIONES
+
+Route::get('/exposiciones', [ExposicionController::class, 'index'])->name('exposiciones.index');
 
 });
