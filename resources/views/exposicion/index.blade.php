@@ -30,6 +30,9 @@
                                     <td>{{ $exposicion->ubicación }}</td> 
                                     <td>{{ $exposicion->nombre_evento }}</td>
                                     <td>
+                                    <a href="{{ route('exposiciones.edit', $exposicion->id) }}"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            Edit </a></li>
                                     <form action="{{ route('exposiciones.destroy', $exposicion->id) }}" method="POST" style="display: inline-block">
                                         @csrf
                                         @method('DELETE')

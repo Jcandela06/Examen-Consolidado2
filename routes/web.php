@@ -49,5 +49,7 @@ Route::get('/exposiciones', [ExposicionController::class, 'index'])->name('expos
 Route::post('/exposiciones', [ExposicionController::class, 'store'])->name('exposiciones.store');
 Route::get('/exposiciones/create', [ExposicionController::class, 'create'])->name('exposiciones.create');
 Route::delete('/exposiciones/{exposicion}', [ExposicionController::class, 'destroy'])->name('exposiciones.destroy');
+Route::put('/exposiciones/{exposicion}', [ExposicionController::class, 'update'])->name('exposiciones.update');
+Route::get('/exposiciones/{exposicion}/edit', [ExposicionController::class, 'edit'])->name('exposiciones.edit');
 
 });

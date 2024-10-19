@@ -58,7 +58,9 @@ class ExposicionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $exposicion = Exposicion::find($id);
+        $exposiciones = DB::table('exposiciones')->get();
+        return view('exposicion.edit', compact('exposicion'));
     }
 
     /**
@@ -66,7 +68,17 @@ class ExposicionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $exposicion = Exposicion::find($id);
+
+        $exposicion->obra_id = $request->obra_id;
+        $exposicion->fecha_inicio = $request->fecha_inicio;
+        $exposicion->fecha_fin = $request->fecha_fin;
+        $exposicion->ubicación = $request->ubicación; 
+        $exposicion->nombre_evento = $request->nombre_evento; 
+        $exposicion->save();
+        $exposiciones = DB::table('exposiciones')->get();
+
+        return redirect()->route('exposiciones.index')->with('success', 'exposicion creado exitosamente.');
     }
 
     /**
